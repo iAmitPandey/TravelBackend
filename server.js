@@ -1,6 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
+const cors = require("cors");
 
 dotenv.config();
 
@@ -14,9 +15,10 @@ const categoryRouter = require("./routes/category.router");
 const wishlistRouter = require("./routes/wishlist.router");
 
 const connectDB = require("./config/dotconfig");
-const wishlist = require("./model/wishlist.model");
 
 const app = express();
+
+app.use(cors());
 app.use(express.json());
 connectDB();
 
